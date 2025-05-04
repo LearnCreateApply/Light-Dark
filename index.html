@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light - Dark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cinzel', serif;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        body{
+            overflow: hidden;
+        }
+        .container-box {
+            height: 100vh;
+            width: 100vw;
+            animation: rotate 2s linear  infinite;
+        }
+
+        .container-box::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-100%, -50%);
+            height: 50vh;
+            width: 25vh;
+            border: 1px solid black;
+            border-color: black transparent black black;
+            background-color: white;
+            border-radius: 100% 0 0 100%/50% 0 0 50%;
+        }
+        .container-box::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid white;
+            border-color: black black black transparent;
+            transform: translate(0, -50%);
+            height: 50vh;
+            width: 25vh;
+            background-color: black;
+            border-radius: 0 100% 100% 0/0 50% 50% 0;
+        }
+
+        .lefthalf {
+
+            position: absolute;
+            width: 50vw;
+            height: 100vh;
+        }
+
+        .lefthalf::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 12.5vh;
+            height: 25vh;
+            /* aspect-ratio: 1/1; */
+            background-color: black;
+            z-index: 1;
+            border-radius: 100% 0 0 100%/50% 0 0 50%;
+        }
+
+        .lefthalf::after {
+            content: "";
+            position: absolute;
+            width: 12.5vh;
+            aspect-ratio: 1/1;
+            top: 50%;
+            transform: translate(50%, 50%);
+            border-radius: 100%;
+            right: 0;
+            background-color: white;
+            z-index: 2;
+        }
+
+        .righthalf {
+            position: absolute;
+            right: 0;
+            width: 50vw;
+            height: 100vh;
+        }
+
+        .righthalf::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 12.5vh;
+            height: 25vh;
+            transform: translateY(-100%);
+            background-color: white;
+            z-index: 1;
+            border-radius: 0 100% 100% 0/0 50% 50% 0;
+        }
+
+        .righthalf::after {
+            content: "";
+            position: absolute;
+            width: 12.5vh;
+            aspect-ratio: 1 / 1;
+            top: 50%;
+            transform: translate(-50%, -150%);
+            border-radius: 100%;
+            left: 0;
+            background-color: black;
+            z-index: 2;
+        }
+        .white{
+            background-color: white;
+            height: 100vh;
+            width: 50vw;
+            /* z-index: -5; */
+            position: absolute;
+            border: none;
+            right: 0;
+            outline: none;
+        }
+        .black{
+            background-color: black;
+            height: 100vh;
+            width: 50vw;
+            z-index: -1;
+            left: 0;
+            border: none;
+            position: absolute;
+        }
+        .text{
+            position: absolute;
+            top: 0;
+            font-size: 2em;
+            width: 50vw;
+            padding: 1em 0.5em;
+        }
+        .righttext{
+            right: 0;
+            text-align: end;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container-box">
+            <div class="lefthalf"></div>
+            <div class="righthalf"></div>
+        </div>
+        <div class="herotext">
+            <div class="text lefttext">In light, the dark takes breath.</div>
+            <div class="text righttext">In dark, the light finds rest.</div>
+        </div>
+    </main>
+</body>
+
+</html>
